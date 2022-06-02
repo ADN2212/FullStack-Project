@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<title>
+			Edit {{rest.name}}
+		</title>
+
+		<!--Para cargar las fuentes-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+		
+		<!--Los links de las funtes deben estar antes del ".css"-->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'stylos_edit_and_delete.css')}}">
+	</head>
+	
+	<body>
+		<center>
+			<div>
+				<h2> Editar Restaurante </h2>
+
+				<form action="{{ url_for('edit_rest', restaurant_id = rest.id) }}" method = 'POST'>
+
+					<p>Nuevo Nombre:
+						<input type='text' size='30' name='name', placeholder = "Escribe Aqui" id="input_text">
+						<input type='submit' value='Editar' id="input_button">
+					</p>
+
+				</form>
+
+				<p> Nombre Actual: {{rest.name}} </p>
+				<p><a href="{{url_for('show_restaurants')}}"> --> Cancelar y Volver a la Pagina Principal <-- <a></p>	
+
+				</form>
+			</div>
+		</center>
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+html {
+	/*Lo que se ponga aqui será agragado a toda la pagina web*/
+	font-family: 'Lato', sans-serif;
+}
+
+body {
+	background-color: black;
+	width: 60%; margin-left: 20%;
+}
+
+div {
+	border: double;
+	border-color: #FF6100;
+	background-color: white;
+	border-radius: 10px;
+	color:white;
+	width: 60%;
+}
+
+div:hover {
+	box-shadow: 0.25rem 0.25rem 0.25rem  #FF5733;
+}
+
+a {
+	transition: color 0.5s linear;
+	text-decoration: none;/*Para que no este la underline*/
+}
+
+h2 {
+	color: white;
+	width: 80%;
+	background-color: #FF6100;
+	border-radius: 10px;
+}
+
+a:visited {	
+	color: black;
+}
+
+a:hover {
+	color: #FF5733;
+	border-style: solid;
+	border-radius: 7px;
+	font-style: normal;
+}
+
+
+#input_text {
+	background-color: rgba(20, 24, 24, 0.9);
+	font-family: 'Lato', sans-serif;
+	color: white;
+}
+
+#input_button {
+	transition: color 0.5s linear;
+	color: white;
+	background-color: #FF6100;
+	border-radius: 5px;
+	font-family: 'Lato', sans-serif;
+	font-size: 13.5px;
+}
+
+#input_button:hover {
+	color: black;
+	border-style: solid;
+	border-radius: 7px;
+	font-style: normal;
+}
+
+
+p {
+	color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

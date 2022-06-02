@@ -1,0 +1,114 @@
+html {
+	/*Lo que se ponga aqui será agregado a toda la pagina web*/
+	font-family: 'Lato', sans-serif;
+}
+
+body {
+	background-color: black;
+	width: 60%; 
+	margin-left: 20%;
+}
+
+
+h1 {
+	/*Solo hay un h1 en todo el html por eso no espesifiqué id ni class*/
+	color: #F1C40F;
+	border-radius: 7px;
+	border-width: 3px;
+	background-color: #FF6100;
+	padding: 10px;
+}
+
+
+#flashed {
+	background-color:white;
+	border-radius: 10px;
+	padding-left: 10px;
+	border-style: double;
+	border-color: #FF6100;
+	color: black;
+}
+
+#innerP {
+	color: white;
+	border-radius: 7px;
+	background-color: #FF6100;
+	width: 50%;	
+}
+
+
+a {
+	transition: color 0.5s linear;
+	color: black;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+}
+
+a:hover {
+	color: #FF5733;
+	border-style: solid;
+	border-radius: 7px;
+	font-style: normal;
+}
+
+#linkcrear {
+	background-color: white;
+	border-style: double;
+	border-color: #FF5733;
+	border-radius: 7px;
+	padding: 10px;
+	color: black;
+}
+
+.listdiv {
+	color: black;
+	border-style: double;
+	border-color: #FF5733;
+	border-radius: 7px;
+	background-color: white;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+#emptymenu {
+	color: black;
+	border-style: double;
+	border-color: red;
+	border-radius: 7px;
+	background-color:white;
+	text-align: center;
+	padding: 15px;
+
+}
+
+footer {
+	color: black;
+	border-style: double;
+	border-color: #FF5733;
+	border-radius: 7px;
+	background-color: white;
+
+}
+
+div:hover, footer:hover {
+	box-shadow: 0.25rem 0.25rem 0.25rem #FF5733;
+}
+
+#emptymenu:hover {
+	box-shadow: 0.25rem 0.25rem 0.25rem #FF5733;
+	color: tomato;
+}
+
+#innerNov {
+	color: #FF5733;
+}
+
+
+
+
+
+
+

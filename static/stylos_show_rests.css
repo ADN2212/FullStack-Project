@@ -1,0 +1,198 @@
+html {
+	/*Lo que se ponga aqui será agragado a toda la pagina web*/
+	font-family: 'Lato', sans-serif;	
+}
+
+body {
+	background-color: black;
+	width: 60%; 
+	margin-left: 20%;
+}
+
+#header {
+/*Para poder alinear los elementos del header*/
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#titulo {
+	color: #F1C40F;
+	border-style: double;
+	border-color: #FF6100;
+	border-radius: 7px;
+	border-width: 3px;
+	width: 50%;
+	background-color: #FF6100;
+}
+
+#info {
+	color: white;
+	font-size: 16.5px;
+}
+
+
+#header_div1 {
+	color: black;
+	background-color: white;	
+	border-radius: 10px;
+	height: 100%;
+	width: 30%;
+	padding: 10px;
+	font-size: 20px;
+	padding: 10px;
+	margin-right: 10px;
+	border-width: 6px;
+}
+
+#header_div2 {
+	background-color: #FF6100;
+	border-radius: 10px;
+	width: 70%;
+	padding: 10px;
+	font-size: 20px;
+}
+
+/* Agregar la sombra que aparece cuando el puntero está dentro (arriba) del div */
+#header_div2:hover, #header_div1:hover, #options:hover, #flashed:hover, #listado:hover, #botton:hover{
+	box-shadow: 0.25rem 0.25rem 0.25rem #FF5733;
+}
+
+#options {
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+#options h3 {
+	color: white;
+	border-radius: 7px;
+	border-width: 3px;	
+	width: 50%;
+	height: 20%;
+	background-color: #FF6100;	
+}
+
+#flashed {
+	background-color: white;
+	border-radius: 10px;
+	padding: 10px;
+	margin-top: 10px;
+}
+
+
+#flashed h3 {
+	color: black;
+	background-color: #FF6100;
+}
+
+#flashed li {
+	color: black;
+}
+
+#listado {
+	background-color: white;
+	height: 500px;
+	overflow: scroll;
+	margin-top: 10px;	
+}
+
+#listado h2 {
+	border-radius: 7px;
+	border-width: 3px;
+	width: 50%;
+	color: white;
+	background-color: #FF6100;
+}
+
+
+#lista li {
+	color: #F39C12;
+	border-bottom: dashed 1.5px;
+}
+
+
+#lista {
+	list-style-type: none;
+	list-style-position: outside;
+	padding: 10px;
+}
+
+#innerP {
+	width: 50%;
+	border-radius: 7px;
+	color: white;
+	font-size: 20px;
+	background-color: #FF6100;
+}
+
+#innerP2 {
+	color: black;
+	font-size: 15px;
+}
+
+/* Estilo Global del Borde */
+#listado, #header_div1, #header_div2, #options, #flashed, #botton{
+	border-style: double;
+	border-radius: 10px;
+	border-color: #FF6100;
+	border-width: 4.5px;	
+}
+
+
+
+#innerDiv {
+	width: 90%;
+}
+
+#innerDiv h3{
+	width: 0%;
+	color: #FF6100;;
+	border-radius: 5px;
+
+}
+
+.listOp {
+	color: black;
+}
+
+
+#botton {
+	color: black;
+	background-color: white;
+	margin-top: 15px;
+}
+
+
+a {
+	transition: color 0.5s linear;
+	color: black;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+}
+
+a:hover{
+	color: #FF5733;
+	border-style: solid;
+	border-radius: 7px;
+	font-style: normal;
+}
+
+
+img {
+	border-radius:75px;/*Para que se vea redonda este valor debe ser igua a la mitad de us ancho y altura donde ancho = altura*/
+}
+
+#name {
+	border-radius: 5px;
+	border-width: 3px;
+	width: 80%;
+	color: white;
+	background-color: #FF6100;
+}
+
+

@@ -1,0 +1,58 @@
+html {
+	/*Lo que se ponga aqui será agragado a toda la pagina web*/
+	font-family: 'Lato', sans-serif;	
+}
+
+body {
+	background-color: black;
+	width: 60%; 
+	margin-left: 20%;
+}
+
+#mainDiv {
+	border: double;
+	border-color: #FF6100;
+	background-color: white;
+	border-radius: 10px;
+	color:white;
+	width: 60%;
+}
+
+#mainDiv:hover {
+	box-shadow: 0.25rem 0.25rem 0.25rem  #FF5733;
+}
+
+#header {
+	color: white;
+	background-color: #F39C12;
+	border-radius: 10px;
+	width: 80%;	
+}
+
+a {
+	transition: color 0.5s linear;
+	/*color: white;*/
+	text-decoration: none;/*Para que no este la underline*/
+}
+
+#githubLogin:hover {
+	color: green;
+	border-style: solid;
+	border-radius: 7px;
+	font-style: normal;
+}
+
+a:hover {
+	color: #FF5733;
+	border-style: solid;
+	border-radius: 7px;
+	font-style: normal;
+}
+
+#userP {
+	color: tomato;
+}
+
+
+
+

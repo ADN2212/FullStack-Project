@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Rests List</title>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+		
+		<!--Para cargar las fuentes-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+		<!--Los links de las funtes deben estar antes del del .css-->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'stylos_show_rests.css')}}">
+
+	</head>
+	<body>
+		<header id= "header">
+			<div id = "header_div1">
+				<center>
+					<p>
+						{% if not(lg.get('username') == None) %}						
+							<h3 id ="name">{{lg.get('username')}}</h3>
+							<img src = '{{ "{}".format(lg["picture_url"]) }}' width = '150', height = '150'/>
+							<br>
+							<small>Email: {{lg.get('email')}}</small>
+						{% else %}
+							No One :(	
+						{% endif%}
+					</p>
+				</center>
+			</div>
+			<div id = "header_div2">
+				<center>				
+					<h1 id = "titulo"> AlaCarta.com </h1>
+						<p id = "info">
+							Biendenido/a, en esta Aplicación Web usted tendrá acceso a todos los restaurantes bajo su haber, donde podrá editarlos y borrarlos tanto como crear nuevos,
+							ademas va a tener acceso a los items del menú de cada restaurante, en el cual tambien va a tener las opciones antes mencionadas, pero en este caso con los items del menú, por ultimo, el usuario tendrá acceso a visualizar los JSONs de todos los elementos que conforman esta Data Base, tanto de manera individual como grupal. 
+						</p>				
+				</center>
+			</div>		
+		</header>
+		<div id = "options">			
+				<center>
+						<h3> ¿Qué Desea Hacer? </h3> 
+							<p id = "innerP2" >								
+								{% if lg.get('username') == None %} 
+									1-<a href="{{url_for('show_login')}}"> Acceder </a>,
+									2-<a href="#botton"> Ir al Fondo </a>									
+								{% else %}
+									1-<a href="{{url_for('new_rest')}}"> Crear Nuevo Restaurante </a>, 
+									2-<a href="{{url_for('restaurants_JSON')}}"> Exportar JSONs de los Restaurantes </a>, 
+									3-<a href="#botton"> Ir al Fondo </a>,
+									4-<a href="{{url_for('show_login')}}"> Cerrar Sessión </a>
+								{% endif %}
+							</p>							
+				</center>
+		</div>
+		<div id = flashed>
+		{% with messages = get_flashed_messages() %}<!-- Una lista con todos los mensajes-->
+			{% if messages %}<!--Esto se ejecuta siempre que no sea False o un valor equivalente (None, 0, [], "")-->				
+				<div id ="innerDiv">
+				<h3> Novedades: </h3>
+				
+					<ul>
+					{% for m in messages %}
+						<li>
+							 {{m}}
+						</li>
+					{% endfor %}
+					</ul>
+				</div>
+
+			{% else %}
+				<center>
+					 <p id = "innerP"> <b>Sin Novedades </b> </p>
+				</center>	
+			{% endif %}
+		{% endwith %}
+		</div>
+
+		<div id = "listado">
+			<center>
+				<h2 id="innerh2"> Lista de Restaurantes Disponibles: </h2>
+			</center>
+		<ul id = "lista">				
+		{% for r in rests %}
+			<li>
+				<div class="listDiv">				
+					<p>
+						<a href="{{url_for('restaurant_menu', restaurant_id = r.id)}}"><!--Para porder acceder al menu del rest-->
+							<h3 class="listT"> <u>{{r.name}} </u> </h3>
+						</a>
+						{% if lg.get('user_id') == 1 or lg.get('user_id') == r.user_id %}
+							<p class = "listOp">Opciones:										
+								1- <a href="{{ url_for('edit_rest', restaurant_id = r.id) }}"> Editar </a>, 
+								2- <a href="{{ url_for('delete_rest', restaurant_id = r.id) }}"> Borrar </a>
+							</p>
+						{% endif %}	
+					</p>								
+				</div>
+			</li>
+		{% endfor %}
+		<ul>
+		</div>	
+		<footer id = "botton">
+			<center>
+				<h4>
+					Opciones:<br>
+					A: <a href="#titulo">Ir Arriba</a>, 
+					B: <a href="mailto:adn221294@gmail.com">Enviar E-mail</a>
+				</h4>
+				<small>
+					Copyright 2022 
+				</small>
+				<br>
+			</center>
+		</footer>
+	</body>	
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

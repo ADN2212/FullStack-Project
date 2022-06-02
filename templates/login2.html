@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+		<!--LOAD PRE-REQUISITES FOR GOOGLE SIGN IN -->
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<meta name="google-signin-client_id" content="205504189902-62qnn8mh8j9o91g5bljtum79d74fqpcq.apps.googleusercontent.com">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
+	
+		<!--Google Fonts-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">	
+	
+		<!--Lik to CSS--->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'stylos_login.css')}}">	
+	</head>
+
+	<body>
+	<center>	
+	<div id="mainDiv"> 
+		<h1 id = "header"> Welcome to the Login Page </h1>
+
+		{% if lg.get('username') == None %}
+
+			<!-- GOOGLE PLUS SIGN IN BUTTON-->
+			<div id="signinButton" class="g-signin2"></div>
+			<br>
+			<a id="githubLogin" href="{{url_for('github_login')}}">Login with GitHub</a>				
+		{% else %}
+			<p id="userP"> <b>{{lg.get('username')}}</b> está logeado actualmente </p>	
+		{% endif %}	
+
+		{% if not( lg.get('username') == None) %}
+			{% if lg['provider'] == 'Google' %}
+				<p>
+					<a href="{{ url_for('gdisconnect')}}" onclick="signOut();"> Cerrar Seción de Google </a>
+				</p>
+			{% elif lg['provider'] == 'GitHub' %}
+				<p>
+					<a href="{{url_for('github_logout')}}" onclick="GitHubSingout();">Cerra Seción de GitHub</a>
+				</p>
+			{% else %}
+				<p>
+					<a href="{{url_for('logout_goat')}}"> Cerra Seción de Administrador </a>
+				</p>	
+			{% endif %}
+
+		{% else %}
+			<p>
+				<a href="{{ url_for('show_restaurants')}}">Volver a la Pagina Principal</a>
+			</p>
+	{% endif %}	
+	
+	</div>
+	</center>
+	<script type="text/javascript">
+		
+		
+		$('#signinButton').click(function(){
+    	// signInCallback defined in step 6.
+    	var auth2 = gapi.auth2.getAuthInstance();
+    	//Ver funciones asincronas en JS.
+    	auth2.grantOfflineAccess().then(signInCallback).catch(err => console.log("Se ha cerrado la ventana antes de tiempo: " + err['error']));
+  		});
+	
+		function signInCallback(authResult){		
+			code = authResult['code'];//Este codigo cambia cada vez que el user accede a se cuenta de Google (Access Token).
+			if (code){
+				$.ajax({
+					type: 'POST',
+      				url: '/gconnect?state={{STATE}}',
+      				processData: false,
+      				contentType: 'application/octet-stream; charset=utf-8',
+      				data: code,
+      				success: function(result){//"result" es lo que se recibe como respuesta del lado del servidor.
+      				if (result){
+      					window.location.href = "/restaurants";
+      					}
+      				} 
+				})	
+			} else if (authResult['error']){//En caso de que se produzca un error.
+				$('#result').html("Ha sucedido un error :(");
+
+			} else {
+				$('#result').html("Se ha fallado al hacer una llamada al servidor. revise su configuracion y consola.");
+			} 
+		}
+
+		
+		function signOut(){
+    		var auth2 = gapi.auth2.getAuthInstance();
+    		auth2.signOut().then(function (){//Asinconia.
+    			$('#signinButton').attr('style', 'display: block');	
+    			})     			
+  			}
+
+  		function GitHubSingout() {
+  			//Abre una ventana aparte para que el usuario cierra su seeión de GitHub.
+			window.open('https://github.com/logout');
+		}
+  		
+	</script>
+
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

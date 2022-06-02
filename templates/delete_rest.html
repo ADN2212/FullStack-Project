@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<title>
+			Delete {{rest.name}}
+		</title>
+
+		<!--Para cargar las fuentes-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+		
+		<!--Los links de las funtes deben estar antes del ".css"-->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'stylos_edit_and_delete.css')}}">
+
+	</head>
+
+	<body>
+
+		<center>
+			<div>
+				<h2> Está seguro de que desea borrar <u> {{rest.name}} </u> de la lista de restaurantes ? </h2>
+
+				<form action="{{ url_for('delete_rest',restaurant_id = rest.id)}}" method = 'POST'>
+
+					<input type='submit', value = 'Si, Borrar' id="input_button">
+
+				</form>
+			
+				<p>
+					<a href="{{ url_for('show_restaurants') }}">
+					--> No, cancelar y volver a la Pagina Principal <--
+					</a>
+				</p>
+			
+			</div>
+		</center>
+
+	</body>
+
+</html>
+
+
+
+
+
+
+
+

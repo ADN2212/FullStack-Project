@@ -1,0 +1,90 @@
+<html>
+
+	<head>
+		<title>
+			Create New Item
+		</title>
+
+		<!--Para cargar las fuentes-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,500&family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+		
+		<!--Los links de las funtes deben estar antes del ".css"-->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'stylo_create_and_edit.css')}}">
+		
+	</head>
+
+	<body>
+		<div>
+		<center>	
+			<h1> Crear un Nuevo  Item de Menú</h1>
+		</center>
+		<form action="{{url_for('new_menu_item', restaurant_id=restaurant_id)}}" method = 'POST'>
+
+			<p>Nombre del Nuevo Item:<!--<br>-->
+				<input type='text' size='30' name = 'name' placeholder = "???" class="input">
+			</p>			
+			
+			<p>
+				Descrición:<br>
+				<textarea cols = "30"  rows = "5" name = "description" placeholder="..." id = "text" value ="xxx">
+				</textarea>
+			</p>
+			
+			<p>
+				Precio:<!--<br>-->
+				<input type = "number" name = "price" placeholder = "$$$" class= "input" >
+			</p>
+
+			<p>
+				Tipo:<br>
+				<input type = "radio" name = "course" value = "Appetizer" class="radioB">  Aperitivo<br>
+				<input type = "radio" name = "course" value = "Entry" class="radioB">  Entrada<br>
+				<input type = "radio" name = "course" value = "Dessert" class="radioB">  Postre<br>
+				<input type = "radio" name = "course" value = "Drink" class="radioB">  Bebida<br>
+			</p>
+
+			<p>
+				<center>
+					<input type='submit' value='Crear' id="input_button">
+				</center>
+			</p>
+		</form>
+			<p>
+				<center>
+					<a href="{{url_for('restaurant_menu', restaurant_id=restaurant_id )}}">--> Cancelar y volver al menú <--</a>
+				</center>
+			</p>
+		</div>
+	</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

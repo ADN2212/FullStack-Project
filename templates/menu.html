@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<title>
+			{{restaurant.name}} Menú
+		</title>
+
+		<!--Para cargar las fuentes-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+
+		<!--Conexion al ".css"-->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'stylo_menu_rest.css')}}">
+	
+	</head>
+	<body>
+
+		<div id ="cabecera">
+			<center>
+				<h1>{{restaurant.name}}</h1>
+			</center>
+		</div>
+
+		<div id = flashed>
+		{% with messages = get_flashed_messages() %}<!-- Una lista con todos los mensajes-->
+			{% if messages %}
+				<h3 id = innerNov>Novedades: </h3>
+				<ul>
+					{% for m in messages %}
+						<li>
+							 {{m}} 
+						</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<center>
+					 <p id = "innerP"> <b>Sin Novedades</b> </p>
+				</center>		
+			{% endif %}
+		{% endwith %}
+		</div>
+
+		<div>
+			{% if is_allowed %}
+				<h3 id="linkcrear">
+					<a href = "{{url_for('new_menu_item', restaurant_id = restaurant.id) }}"> Crear Nuevo Item </a>
+				</h3>
+			{% else %}
+				<h3 id="linkcrear">
+					Este restaurante es propiedad de '{{owner_name}}' <br>solo el/ella puede crear, editar y borrar items de este menú.
+				</h3>
+			{% endif %}
+
+		</div>
+		
+		{% if items %}
+		<div>
+			<h3 id="linkcrear">
+				En este Menú Ofrecemos: 
+			</h3>
+		</div>			
+			{% for i in items %}
+			<div class="listdiv">
+				<h3> <u> {{i.name}}: </u> </h3>
+				<ul>				 
+					<li> <p>Description:  {{i.description}}</p> </li>
+					<li> <p> Precio: {{i.price}} </p> </li>
+					<li> <p> Tipo: {{ i.course }} </p> </li>
+					{%if is_allowed %}
+						<li> <p> <a href="{{ url_for('restaurant_menu_JOSON_one', menu_id = i.id, restaurant_id = restaurant.id) }}"> Ver JSON de este item </a> </p> </li>
+
+						<li>
+							Opciones: 
+							<ol>
+								<li> <a href="{{url_for('edit_menu_item', restaurant_id = restaurant.id, menu_id = i.id )}}"> Editar </a> </li>
+								<li> <a href="{{url_for('delete_menu_item', restaurant_id = restaurant.id, menu_id = i.id )}}"> Borrar </a> </li> 
+							</ol> 
+						</li>
+					{%endif%}
+				</ul>
+			</div>							
+			{% endfor %}
+
+		{% else %}<!-- Este "else" se activara solo si la query "items" es parceada a una lista-->
+			<h2 id = "emptymenu"> Atención: <br>El menú de este restaurante no tiene nigun item, pulse el link de aca arriba para agregar uno. </h2>
+		{% endif %}
+
+		<footer>
+			<center>
+				<p>
+					{% if items %}
+						<h4>Opciones Generales:</h4>
+						{%if is_allowed %}
+							1-<a href="{{url_for('show_restaurants')}}">Volver a la lista de restaurantes</a>, 
+							2-<a href="{{url_for('restaurant_menu_JOSONs', restaurant_id = restaurant.id)}}">Ver JSONs de los items de este menú</a>,
+							3-<a href="{{ url_for('delete_all', restaurant_id = restaurant.id)}}"> Borrar Todos los items del menú </a>
+						{%else%}
+							1-<a href="{{url_for('show_restaurants')}}">Volver a la lista de restaurantes</a>
+						{% endif %}
+					{% else %}
+						Opciones Generales:<br>
+						1-<a href="{{url_for('show_restaurants')}}">Volver a la lista de restaurantes</a>
+					{% endif %}					
+				</p>
+			</center>
+		</footer>	
+	</body>
+
+</html>
+
+
+
+
+
+
+

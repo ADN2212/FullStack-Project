@@ -1,0 +1,97 @@
+html {
+	/*Lo que se ponga aqui será agregado a toda la pagina web*/
+	font-family: 'Lato', sans-serif;
+}
+
+body {
+	background-color: black;
+	width: 60%; margin-left: 20%;
+}
+
+h1 {
+	color: #F1C40F;
+	background-color: #FF5733;
+	border-radius: 10px;
+	width: 70%;	
+}
+
+
+div {
+	border: double;
+	border-color: #FF5733;
+	background-color: white;
+	border-radius: 10px;
+	color:black;
+	width: 55%;
+	align-self: center;
+	margin-left: 20%;
+	margin-right: 20%;
+	padding-left: 10px;
+	padding-right:10px;
+}
+
+div:hover {
+	box-shadow: 0.25rem 0.25rem 0.25rem #FF5733;
+}
+
+a {
+	transition: color 0.5s linear;
+	color:black;
+	text-decoration: none;/*Para que no este la underline*/
+}
+
+.input { 
+	width: 30%;
+	background-color: rgba(20, 24, 24, 0.9);
+	font-style: italic;
+	color: white;
+	font-family: 'Lato', sans-serif;
+ }
+
+#text {
+	width: 100%;
+	background-color: rgba(20, 24, 24, 0.9);
+	color: white;
+	font-family: 'Lato', sans-serif;
+	font-size: 15px;
+}
+
+
+a:visited {
+	color: black;
+}
+
+a:hover {
+	color: #FF5733;
+	border-style: solid;
+	border-radius: 7px;
+	font-style: normal;
+}
+
+#input_button {
+	transition: color 1s linear;
+	color: white;
+	background-color: #FF5733;
+	border-radius: 5px;
+	font-family: 'Lato', sans-serif;
+	font-size: 15.5px;
+}
+
+#input_button:hover {
+	color: black;
+	border-style: solid;
+	border-radius: 7px;
+	font-style: normal;
+}
+
+
+
+
+
+
+
+
+
+
+
+
